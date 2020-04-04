@@ -77,7 +77,7 @@ void loop() {
   // Light Up
   for (int row = 0; row < 15; row++) {
     for (int col = 0; col < 25; col++) {
-      setFlagColor(Counter); // call function to pick the correct flag
+      setFlagColor(Counter,row,col); // call function to pick the correct flag
       delay(100);     // 0.1 second slow down
       FastLED.show(); // Light up one at a time
     }
@@ -91,7 +91,7 @@ void loop() {
   }
   Counter++; // increase counter
 }
-void setFlagColor(int flagID) {
+void setFlagColor(int flagID, int row, int col) {
   switch (flagID) {
     case 0:
       leds[ (row * 15) + col ] = flag_USA[row][col];
